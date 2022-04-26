@@ -12,12 +12,12 @@ import com.springrest.springrest.entity.Courses;
 public class CourseServiceImpl implements CourseService {
 	@Autowired
 	private CourseDao courseDao;
-//	List<Courses> list;
+	// List<Courses> list;
 
 	public CourseServiceImpl() {
-//		list = new ArrayList<>();
-//		list.add(new Courses(145, "Java Core", "This is Java Core"));
-//		list.add(new Courses(1451, "SpringBoot", "RestApi using SpringBoot"));
+		// list = new ArrayList<>();
+		// list.add(new Courses(145, "Java Core", "This is Java Core"));
+		// list.add(new Courses(1451, "SpringBoot", "RestApi using SpringBoot"));
 	}
 
 	@Override
@@ -27,40 +27,41 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	public Courses getCourse(long courseId) {
-//		Courses c = null;
-//		for (Courses course : list) {
-//			if (course.getId() == courseId) {
-//				c = course;
-//				break;
-//			}
-//		}
-//		return c;
-		return courseDao.getOne(courseId);
+		// Courses c = null;
+		// for (Courses course : list) {
+		// if (course.getId() == courseId) {
+		// c = course;
+		// break;
+		// }
+		// }
+		// return c;
+		return courseDao.findById(courseId).get();
 	}
 
 	@Override
 	public Courses addCourse(Courses course) {
-//		list.add(course);
+		// list.add(course);
 		courseDao.save(course);
 		return course;
 	}
 
 	@Override
 	public Courses updateCourse(Courses course) {
-//		list.forEach(e -> {
-//			if (e.getId() == course.getId()) {
-//				e.setTitle(course.getTitle());
-//				e.setDescription(course.getDescription());
-//			}
-//		});
+		// list.forEach(e -> {
+		// if (e.getId() == course.getId()) {
+		// e.setTitle(course.getTitle());
+		// e.setDescription(course.getDescription());
+		// }
+		// });
 		courseDao.save(course);
 		return course;
 	}
 
 	@Override
 	public void deleteCourse(long courseId) {
-//		list = this.list.stream().filter(e -> e.getId() != courseId).collect(Collectors.toList());
-		Courses entity = courseDao.getOne(courseId);
+		// list = this.list.stream().filter(e -> e.getId() !=
+		// courseId).collect(Collectors.toList());
+		Courses entity = courseDao.findById(courseId).get();
 		courseDao.delete(entity);
 	}
 }
