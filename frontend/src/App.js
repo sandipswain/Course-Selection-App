@@ -1,6 +1,8 @@
 // import { ToastContainer } from "react-toastify";
 import { Col, Container, Row } from "reactstrap";
 import Header from "./components/Header";
+import LeftMenu from "./components/LeftMenu";
+import Home from "./components/Home";
 
 function App() {
   // const btnHandler = () => toast.success("Done", { position: "bottom-right" });
@@ -12,10 +14,10 @@ function App() {
         <Header />
         <Row>
           <Col md={4}>
-            <h2>This is menu side</h2>
+            <LeftMenu />
           </Col>
           <Col md={8}>
-            <h2>This is content side</h2>
+            <Home />
           </Col>
         </Row>
       </Container>
