@@ -3,6 +3,9 @@ import { Col, Container, Row } from "reactstrap";
 import Header from "./components/Header";
 import LeftMenu from "./components/LeftMenu";
 import Home from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+import AddCourse from "./components/AddCourse";
+import AllCourses from "./components/AllCourses";
 
 function App() {
   // const btnHandler = () => toast.success("Done", { position: "bottom-right" });
@@ -17,7 +20,11 @@ function App() {
             <LeftMenu />
           </Col>
           <Col md={8}>
-            <Home />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="addCourse" element={<AddCourse />} />
+              <Route path="allCourses" element={<AllCourses />} />
+            </Routes>
           </Col>
         </Row>
       </Container>

@@ -1,24 +1,41 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "reactstrap";
 
 function LeftMenu() {
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "bold" : "normal",
+      textDecoration: "none",
+    };
+  };
   return (
     <>
       <ListGroup>
-        <ListGroupItem tag="a" href="#!" action>
-          Home
+        <ListGroupItem>
+          <NavLink style={navLinkStyles} to="/">
+            Home
+          </NavLink>
         </ListGroupItem>
-        <ListGroupItem tag="a" href="#!" action>
-          Add Course
+        <ListGroupItem>
+          <NavLink style={navLinkStyles} to="/addCourse">
+            Add Course
+          </NavLink>
         </ListGroupItem>
-        <ListGroupItem tag="a" href="#!" action>
-          View Courses
+        <ListGroupItem>
+          <NavLink style={navLinkStyles} to="/allCourses">
+            View Courses
+          </NavLink>
         </ListGroupItem>
-        <ListGroupItem tag="a" href="#!" action>
-          About Us
+        <ListGroupItem>
+          <NavLink style={navLinkStyles} to="/aboutUs">
+            About Us
+          </NavLink>
         </ListGroupItem>
-        <ListGroupItem tag="a" href="#!" action>
-          Contact Us
+        <ListGroupItem>
+          <NavLink style={navLinkStyles} to="/contactUs">
+            Contact Us
+          </NavLink>
         </ListGroupItem>
       </ListGroup>
     </>
