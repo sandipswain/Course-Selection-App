@@ -9,8 +9,8 @@ function AllCourses() {
   ]);
   return (
     <>
-      <div>AllCourses</div>
-      <p>List of courses are as follows </p>
+      <h4>AllCourses</h4>
+      <hr />
       {courses.length
         ? courses.map((course) => <Course course={course} />)
         : "There are no courses available"}

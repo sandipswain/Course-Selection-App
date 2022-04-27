@@ -7,11 +7,15 @@ function AddCourse() {
     <>
       <Form>
         <FormGroup>
-          <Label for="id">Course Id</Label>
+          <Label for="id" tag="h5">
+            Course Id
+          </Label>
           <Input id="id" name="id" type="text" placeholder="Enter here" />
         </FormGroup>
         <FormGroup>
-          <Label for="id">Course Title</Label>
+          <Label for="id" tag="h5">
+            Course Title
+          </Label>
           <Input
             id="title"
             name="title"
@@ -20,7 +24,9 @@ function AddCourse() {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="description">Course Description</Label>
+          <Label for="description" tag="h5">
+            Course Description
+          </Label>
           <Input
             id="description"
             name="description"
