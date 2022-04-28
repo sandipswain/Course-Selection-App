@@ -1,18 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Course from "./Course";
+import { base_url } from "../services/api";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 function AllCourses() {
-  const [courses, setCourses] = useState([
-    { title: "Java Course", description: "This is java course" },
-    { title: "Django Course", description: "This is django course" },
-    { title: "React Course", description: "This is react course" },
-  ]);
+  useEffect(() => {
+    // alert("Hello World");
+    document.title = "View Courses";
+    fetchAllCourses();
+  }, []);
+
+  // function to call server
+  const fetchAllCourses = () => {
+    axios
+      .get(`${base_url}/courses`)
+      .then((res) => {
+        //success
+        console.log(res);
+        toast.success("Courses has been loaded successfully", {
+          position: "bottom-left",
+        });
+        setCourses(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.success("Something went wrong", {
+          position: "bottom-left",
+        });
+      });
+  };
+
+  const [courses, setCourses] = useState([]);
   return (
     <>
       <h4>AllCourses</h4>
       <hr />
       {courses.length
-        ? courses.map((course) => <Course course={course} />)
+        ? courses.map((course) => <Course course={course} key={course.id} />)
         : "There are no courses available"}
     </>
   );

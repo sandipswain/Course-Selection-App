@@ -1,4 +1,4 @@
-// import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { Col, Container, Row } from "reactstrap";
 import Header from "./components/Header";
 import LeftMenu from "./components/LeftMenu";
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <ToastContainer /> */}
+      <ToastContainer />
       <Container>
         <Header />
         <Row>

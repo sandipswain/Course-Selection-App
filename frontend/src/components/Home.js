@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Card, CardBody, CardText, CardTitle } from "reactstrap";
 function Home() {
+  useEffect(() => {
+    document.title = "Home";
+  }, []);
   return (
     <div>
       <Card>
