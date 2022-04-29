@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,7 @@ public class MyController {
 	}
 
 //	get the courses
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/courses")
 	public List<Courses> getCourses() {
 		return this.courseService.getCourses();
@@ -38,6 +40,7 @@ public class MyController {
 	}
 
 	@PostMapping("/courses")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public Courses addCourse(@RequestBody Courses course) {
 		return this.courseService.addCourse(course);
 	}
@@ -48,6 +51,7 @@ public class MyController {
 	}
 
 	@DeleteMapping("/courses/{courseId}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<HttpStatus> deleteCourse(@PathVariable String courseId) {
 //		return this.courseService.deleteCourse(Long.parseLong(courseId));
 		try {

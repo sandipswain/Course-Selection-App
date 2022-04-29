@@ -32,12 +32,22 @@ function AllCourses() {
   };
 
   const [courses, setCourses] = useState([]);
+
+  const removeCourse = (id) => {
+    setCourses(courses.filter((course) => course.id !== id));
+  };
   return (
     <>
       <h4>AllCourses</h4>
       <hr />
       {courses.length
-        ? courses.map((course) => <Course course={course} key={course.id} />)
+        ? courses.map((course) => (
+            <Course
+              course={course}
+              key={course.id}
+              removeCourse={removeCourse}
+            />
+          ))
         : "There are no courses available"}
     </>
   );
